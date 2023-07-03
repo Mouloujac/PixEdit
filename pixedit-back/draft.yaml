@@ -1,0 +1,23 @@
+models:
+  Image:
+    title: string:400
+    link: longtext
+    album_id: id:nullable foreign
+    created_at: timestamp:nullable
+    updated_at: timestamp:nullable
+    relationships:
+      belongsTo: Album
+
+  Album:
+    title: string:400
+    description: longtext
+    created_at: timestamp:nullable
+    relationships:
+      hasMany: Image
+
+controllers:
+  Image: 
+    resource: api
+
+  Album:
+    resource: api

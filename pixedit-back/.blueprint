@@ -1,0 +1,16 @@
+created:
+    - app/Http/Controllers/ImageController.php
+    - app/Http/Controllers/AlbumController.php
+    - database/factories/ImageFactory.php
+    - database/factories/AlbumFactory.php
+    - database/migrations/2023_06_17_135513_create_images_table.php
+    - database/migrations/2023_06_17_135514_create_albums_table.php
+    - app/Models/Image.php
+    - app/Models/Album.php
+    - tests/Feature/Http/Controllers/ImageControllerTest.php
+    - tests/Feature/Http/Controllers/AlbumControllerTest.php
+updated:
+    - routes/api.php
+models:
+    Image: { title: 'string:400', link: longtext, album_id: 'id:nullable foreign', created_at: 'timestamp:nullable', updated_at: 'timestamp:nullable', relationships: { belongsTo: Album } }
+    Album: { title: 'string:400', description: longtext, created_at: 'timestamp:nullable', relationships: { hasMany: Image } }
